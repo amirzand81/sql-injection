@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Search</title>
+  </head>
+  <body>
+    <h2>Product Search</h2>
+    <form method="get" action="/search/">
+      <input
+        type="text"
+        name="search_query"
+        value="{{ search_query }}"
+        placeholder="Enter product name"
+      />
+      <button type="submit">Search</button>
+    </form>
+
+    {% if search_query %}
+    <h3>Search Results:</h3>
+    {% if products %}
+    <ul>
+      {% for product in products %}
+      <li>
+        <strong>product_id:</strong> {{ product.product_id }} |
+        <strong>name:</strong> {{ product.name }} | <strong> owner:</strong> 
+        {{ product.owner }} | <strong>description:</strong> {{ product.description }} | 
+        <strong>count:</strong> {{ product.count }} |
+        <strong>price:</strong> {{ product.price }} | <strong>category:</strong>
+        {{ product.category }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+    <p>No products found.</p>
+    {% endif %} {% endif %}
+  </body>
+</html>
