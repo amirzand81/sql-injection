@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background: #f3f3f3;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      .main {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 90%;
+        max-width: 1200px;
+        margin-top: 20px;
+      }
+
+      h2 {
+        color: #4caf50;
+      }
+
+      .section {
+        margin-top: 30px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .no-results {
+        color: #555;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .btn {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #4caf50;
+        font-size: 14px;
+        margin: 5px;
+      }
+
+      .btn-edit {
+        background-color: #ff9800;
+      }
+
+      .btn-delete {
+        background-color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h2 style="text-align: center;">Admin Panel</h2>
+
+      <div class="section">
+        <h3>Product Management</h3>
+        <button class="btn">Add New Product</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Product ID</th>
+              <th>Name</th>
+              <th>Owner</th>
+              <th>Description</th>
+              <th>Count</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for product in products %}
+            <tr>
+              <td>{{ product.product_id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.owner }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.count }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.category }}</td>
+              <td>
+                <button class="btn btn-edit">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="text-align: center;">flag{test13456}</h4>
+
+      <div class="section">
+        <h3>User Management</h3>
+        <button class="btn">Add New User</button>
+        <table>
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Name</th>
+              <th>Password</th>
+              <th>Address</th>
+              <th>Age</th>
+              <th>Phone</th>
+              <th>User Type</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <td>{{ user.user_id }}</td>
+              <td>{{ user.name }}</td>
+              <td>{{ user.password }}</td>
+              <td>{{ user.address }}</td>
+              <td>{{ user.age }}</td>
+              <td>{{ user.phone }}</td>
+              <td>{{ user.user_type }}</td>
+              <td style="text-align: right;">
+                <button class="btn btn-edit">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

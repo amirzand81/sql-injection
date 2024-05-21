@@ -3,37 +3,129 @@
   <head>
     <meta charset="UTF-8" />
     <title>Product Search</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: sans-serif;
+        line-height: 1.5;
+        min-height: 100vh;
+        background: #f3f3f3;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      .main {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 90%;
+        max-width: 800px;
+        margin-top: 20px;
+      }
+
+      h2, h3 {
+        color: #4caf50;
+      }
+
+      form {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 70%;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        background-color: #4caf50;
+        font-size: 16px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .no-results {
+        color: #555;
+        text-align: center;
+        margin-top: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h2>Product Search</h2>
-    <form method="get" action="/search/">
-      <input
-        type="text"
-        name="search_query"
-        value="{{ search_query }}"
-        placeholder="Enter product name"
-      />
-      <button type="submit">Search</button>
-    </form>
+    <div class="main">
+      <h2>Product Search</h2>
+      <form method="get" action="/search/">
+        <input
+          type="text"
+          name="search_query"
+          value="{{ search_query }}"
+          placeholder="Enter product name"
+        />
+        <button type="submit">Search</button>
+      </form>
 
-    {% if search_query %}
-    <h3>Search Results:</h3>
-    {% if products %}
-    <ul>
-      {% for product in products %}
-      <li>
-        <strong>product_id:</strong> {{ product.product_id }} |
-        <strong>name:</strong> {{ product.name }} | <strong> owner:</strong> 
-        {{ product.owner }} | <strong>description:</strong> {{ product.description }} | 
-        <strong>count:</strong> {{ product.count }} |
-        <strong>price:</strong> {{ product.price }} | <strong>category:</strong>
-        {{ product.category }}
-      </li>
-      {% endfor %}
-    </ul>
-
-    {% else %}
-    <p>No products found.</p>
-    {% endif %} {% endif %}
+      {% if search_query %}
+      <h3>Search Results:</h3>
+      {% if products %}
+      <table>
+        <thead>
+          <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Description</th>
+            <th>Count</th>
+            <th>Price</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+          <tr>
+            <td>{{ product.product_id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.owner }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.count }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.category }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="no-results">flag{H3110_W0R1D}</p>
+      {% endif %} {% endif %}
+    </div>
   </body>
 </html>

@@ -1,5 +1,5 @@
 -- Create table for users if not exists
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS Users (
     user_id VARCHAR(20) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
@@ -23,26 +23,27 @@ CREATE TABLE IF NOT EXISTS products (
 
 -- Insert meaningful data into users table
 INSERT INTO users (user_id, name, password, address, age, phone, user_type) VALUES
-('alice123', 'Alice Johnson', 'passAlice123', '123 Main St, Cityville', 30, 1234567890, 'Admin'),
+('alice123', 'Alice Johnson', 'passAlice123', '123 Main St, Cityville', 30, 1234567890, 'Guest'),
 ('bob456', 'Bob Smith', 'passBob456', '456 Elm St, Townsville', 25, 9876543210, 'Regular'),
 ('charlie789', 'Charlie Brown', 'passCharlie789', '789 Oak St, Villageton', 35, 5551234567, 'Regular'),
-('dianaabc', 'Diana Parker', 'passDianaABC', '456 Pine St, Hamletville', 28, 1112223333, 'Admin'),
+('dianaabc', 'Diana Parker', 'passDianaABC', '456 Pine St, Hamletville', 28, 1112223333, 'Guest'),
 ('eva456', 'Eva Taylor', 'passEva456', '567 Maple St, Countryside', 40, 9998887777, 'Regular'),
 ('frank123', 'Frank White', 'passFrank123', '678 Cedar St, Suburbia', 22, 3334445555, 'Regular'),
-('grace789', 'Grace Harris', 'passGrace789', '789 Birch St, Ruralville', 33, 6667778888, 'Admin'),
+('grace789', 'Grace Harris', 'passGrace789', '789 Birch St, Ruralville', 33, 6667778888, 'Guest'),
 ('henry123', 'Henry Martinez', 'passHenry123', '890 Walnut St, Seaside', 45, 2223334444, 'Regular'),
 ('isabella456', 'Isabella Lee', 'passIsabella456', '901 Cherry St, Mountainview', 29, 7778889999, 'Regular'),
-('jack789', 'Jack Adams', 'passJack789', '234 Pineapple St, Beachtown', 38, 4445556666, 'Admin'),
+('jack789', 'Jack Adams', 'passJack789', '234 Pineapple St, Beachtown', 38, 4445556666, 'Guest'),
 ('kelly123', 'Kelly Walker', 'passKelly123', '345 Orange St, Lakeside', 27, 8889990000, 'Regular'),
 ('liam456', 'Liam Carter', 'passLiam456', '456 Banana St, Riverside', 32, 1110002222, 'Regular'),
-('mia789', 'Mia Scott', 'passMia789', '567 Grape St, Hillcrest', 26, 2221110000, 'Admin'),
+('mia789', 'Mia Scott', 'passMia789', '567 Grape St, Hillcrest', 26, 2221110000, 'Guest'),
 ('noah123', 'Noah Green', 'passNoah123', '678 Watermelon St, Valleyview', 39, 5556667777, 'Regular'),
 ('olivia456', 'Olivia Evans', 'passOlivia456', '789 Strawberry St, Parkside', 31, 6665554444, 'Regular'),
-('peter789', 'Peter Allen', 'passPeter789', '890 Blueberry St, Meadowland', 24, 9990001111, 'Admin'),
+('peter789', 'Peter Allen', 'passPeter789', '890 Blueberry St, Meadowland', 24, 9990001111, 'Guest'),
 ('quinn123', 'Quinn Ward', 'passQuinn123', '901 Raspberry St, Woodland', 37, 3332221111, 'Regular'),
 ('rachel456', 'Rachel Hill', 'passRachel456', '234 Blackberry St, Oceanview', 28, 7778889999, 'Regular'),
-('samuel789', 'Samuel Cole', 'passSamuel789', '345 Cranberry St, Farmland', 36, 4445556666, 'Admin'),
-('taylor123', 'Taylor Powell', 'passTaylor123', '456 Lemon St, Hilltown', 23, 8889990000, 'Regular');
+('samuel789', 'Samuel Cole', 'passSamuel789', '345 Cranberry St, Farmland', 36, 4445556666, 'Guest'),
+('taylor123', 'Taylor Powell', 'passTaylor123', '456 Lemon St, Hilltown', 23, 8889990000, 'Regular'),
+('ctf2024_admin', 'Escapachee', 'ctf2024', 'Edition 2024', 24, 14030303, 'Admin');
 
 -- Insert meaningful data into products table
 INSERT INTO products (product_id, name, owner, description, count, price, category) VALUES
