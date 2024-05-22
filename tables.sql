@@ -1,5 +1,5 @@
 -- Create table for users if not exists
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE IF NOT EXISTS users (
     user_id VARCHAR(20) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
