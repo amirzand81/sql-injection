@@ -10,13 +10,9 @@ from django.conf import settings
 SECRET_KEY = settings.SECRET_KEY
 
 def get_user(user_id, password):
-    try:
-        with connection.cursor() as cursor:
-            cursor.execute(f"SELECT * FROM users WHERE user_id='{user_id}' AND password='{password}'")
-            row = cursor.fetchone()
-    except DatabaseError as e:
-        print(f"Database error: {e}")
-        return None
+    with connection.cursor() as cursor:
+        cursor.execute(f"SELECT * FROM users WHERE user_id='{user_id}' AND password='{password}'")
+        row = cursor.fetchone()
 
     if row is not None:
         return list(row)[-1]
@@ -79,13 +75,9 @@ def search_view(request):
     products = []
     
     if search_query:
-        try:
-            with connection.cursor() as cursor:
-                cursor.execute(f"SELECT * FROM products WHERE name LIKE '{search_query}'")
-                products = cursor.fetchall()
-        except DatabaseError as e:
-            print(f"Database error: {e}")
-            products = []
+        with connection.cursor() as cursor:
+            cursor.execute(f"SELECT * FROM products WHERE name LIKE '{search_query}'")
+            products = cursor.fetchall()
         
         product_dicts = [
             {
